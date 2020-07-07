@@ -19,7 +19,7 @@ names_2.sort()
 stopping_point = 0
 
 for i in range(list_size):
-    #stopping_point = j
+    j = stopping_point
     for j in range(list_size):
         if names_1[j][0:1] <= names_2[i][0:1] and names_1[i] != names_2[j]:
             continue

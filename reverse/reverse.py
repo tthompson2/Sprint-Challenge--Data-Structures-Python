@@ -38,10 +38,14 @@ class LinkedList:
 
         return False
 
-    def reverse_list(self, node, prev):
+    def reverse_list(self, node, prev):        
         if self.value = None:
            # print reversed list
         else:
             #add newnode to reverse list
+            reverse_node = node(node.get_value)
+            reverse_node = node.get_next(self.node_value)            
             #newnode link is stacktop
-            # stacktop is newnode 
+            reverse_node.set_next = self.head
+            # stacktop is newnode
+            reverse_node.head = self.head
