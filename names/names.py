@@ -21,9 +21,9 @@ stopping_point = 0
 for i in range(list_size):
     #stopping_point = j
     for j in range(list_size):
-        if ord((names_1[j]) <= ord(names_2[i])) and names_1[i] != names_2[j]:
+        if int((names_1[j], 10) <= int(names_2[i]), 10) and names_1[i] != names_2[j]:
             continue
-        elif ord((names_1[j]) > ord(names_2[i])):
+        elif int((names_1[j], 10) > int(names_2[i]), 10):
             break
         else:
             duplicates.append(names_2[j])
