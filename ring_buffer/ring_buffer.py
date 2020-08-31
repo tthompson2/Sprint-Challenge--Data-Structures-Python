@@ -1,4 +1,9 @@
 # import ipdb
+class Node:
+  def __init__(self, value=None, next_node=None):
+    self.value = value
+    self.next_node = next_node
+
 class LinkedList:
   def __init__(self):
     self.head = None # Stores a node, that corresponds to our first node in the list 
@@ -78,38 +83,37 @@ class LinkedList:
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.list = [None] * capacity
+        self.storage = LinkedList()
         self.capacity_counter = 0
     def append(self, item):
         if self.capacity_counter < self.capacity:
             print("Capacity_Counter:", self.capacity_counter, "Capacity", self.capacity)
-            self.list[self.capacity_counter] = item
+            self.storage.add_to_head(item)
             self.capacity_counter = self.capacity_counter+1
         else:
-            self.list[self.capacity_counter-1] = item
+            self.storage.add_to_head(item)
             self.capacity_counter = 0
             print("The list has reset")
 
     def get(self):
-        for i in range(0, len(self.list)):
-            if self.list[i] == None:
-                self.list.pop(i)
+        current_node = self.storage.head
+        while current_node is not None:
+            if current_node == None:
+                self.storage.remove_head()
+                break
             else:
-                print(self.list[i])
+                print(current_node.value)
+                current_node = current_node.next_node
 
-        return self.list
+        return current_node
 
-buffer = RingBuffer(4)
+buffer = RingBuffer(8)
 buffer.append(2)
 buffer.append(3)
 buffer.append(4)
-
 buffer.append(5)
-
 buffer.append(6)
-
 buffer.append(7)
-
 buffer.append(8)
-
 buffer.append(9)
+buffer.get()
